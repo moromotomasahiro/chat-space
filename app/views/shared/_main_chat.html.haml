@@ -1,0 +1,33 @@
+.main-chat
+  .main_header
+    .main_header_left
+      .header__group_name
+        タロ
+      .header__member_names
+        Member : 太郎
+      .header_edit_btn
+        edit
+  .main_message
+    .contents_main1
+      .message__sender1
+        太郎
+      .message__date1
+        2019/11/20(Wed) 17:50:30
+      .message__details1
+        おはよ
+  
+  .chat-main
+    .form
+      .form_form
+        .input_box  
+          %input{placeholder:"type a message",class: "input_box_text"}
+          %label{class: "input-box__image"}
+            = icon('fas', 'image')
+            %input{type: "file",class: "text"}
+        .form_form_btn_1
+          %input{type:"submit",Value:"Send",class:"form_form_btn"}
+        
+        
+        
+
+    
