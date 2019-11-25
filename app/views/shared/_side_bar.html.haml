@@ -1,14 +1,17 @@
 .side_bar
-  .side_header
-    .header_top
-      たろ
-    .header_edit
-    = link_to "#", class: "header__btn" do
-      = icon('fa', 'edit')
-    .header_setting
-    = link_to "#", class: "header__btn" do
-      = icon('fa', 'cog')
-
+  .header
+    -# %h3.header__name
+    -#   = current_user.name
+    .name
+      = current_user.name
+    %ul.header__lists
+      %li.list
+      = link_to "#", class: "header__btn" do
+        = icon('fa', 'edit')
+      %li.list
+        = link_to edit_user_path(current_user),class: "header__btn" do
+          = icon('fa', 'cog')
+      
 
   .groupbox
     .group
