@@ -2,9 +2,11 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "./shared";
-@import "user";
+@import "modules/user";
 @import "config/colors";
 @import "modules/flash";
+@import "modules/group";
+
 
 // @import "font-awesome";
 // @import "config/colors";

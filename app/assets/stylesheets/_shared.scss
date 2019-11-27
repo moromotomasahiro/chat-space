@@ -2,6 +2,7 @@
   width: 300px;
   color: white;
   float: left;
+  
 
 
   .header{
@@ -10,6 +11,7 @@
     display: flex;
     align-items: center;
     padding: 0 20px;
+    
 }
   .header__name{
     margin-right: 11.5rem;
@@ -52,16 +54,20 @@
     padding: 20px 20px 0;
     overflow: scroll;
   }
+
+  
  
 
   .groupbox__name1{
     font-size: 15px;
     margin-bottom: 5px;
+    color: white;
   }
 
   .groupbox__message1{
     font-size: 11px;
     margin-bottom: 40px;
+    color: white;
   }
 
   .groupbox__name2{
@@ -84,6 +90,7 @@
     display: flex;
     justify-content: space-between;
     border-bottom: solid 1px #eee;
+    
     
 
   .header_edit_btn{
@@ -150,38 +157,54 @@
 
 .chat-main{
   .form{
-    height: 90px;
+    display: flex;
     padding: 20px 40px;
     background-color: #ddd;
 
-  .form_form{
-    display: flex;
+   
+    .form__mask{
+      display: flex;
+      margin: right;
+      width:100%;
+      position: relative;
+    }
+
+    .new_message{
+      display: flex;
+      width: 100%;
+    }
+  
+
+  // .form_form{
+  //   display: flex;
 
     .input_box {
       height: 50px;
-      width: 100%;
+      width: 80%;
       padding: 0 40px 0 10px;
       color: #434a54;
     }
 
+    .form_for{
+      display: flex;
+    }
+
     .input_box_text{
       width: 100%;
-      position: relative;
-      left: 40px;
       height: 50px;
     }
 
     .input-box__image{
      position: absolute;
-     left: 1250px;
-     top: 765px;
-     font-size: 25px;
+     right: 0;
+     top: 15px;
+     font-size: 22px;
     }
 
     .text{
       display: none;
     }
-  }
+  
   
 
   .form_form_btn{
@@ -191,6 +214,8 @@
     margin-left: 15px;
     background-color: #38aef0;
     color: white;
+    
+
   }
 }
 }  

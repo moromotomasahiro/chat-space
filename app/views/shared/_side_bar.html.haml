@@ -19,8 +19,8 @@
         = link_to group_messages_path(group) do
           .groupbox__name1
             = group.name
-          .groupbox__message1aaa
-            メッセージはまだありません。
+          .groupbox__message1
+            = group.show_last_message
           -# .groupbox__name2
           -#   TAROU
           -# .groupbox__message2
