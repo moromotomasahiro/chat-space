@@ -1,0 +1,43 @@
+.main-chat
+  .main_header
+    .main_header_left
+      .header__group_name
+        =@group.name
+      .header__member_names
+        Member : 
+        - @group.users.each do |user|
+          = user.name
+      .header_edit_btn
+        = link_to 'Edit', edit_group_path(@group.id)
+
+
+  .main_message
+    = render @messages
+ 
+
+        
+  .chat-main
+    .form 
+      = form_for [@group, @message] do |f|
+        .form__mask
+          = f.text_field :content, class: 'input_box_text', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'text'
+        = f.submit 'Send', class: 'form_form_btn'
+
+
+
+      
+        -#   %input{placeholder:"type a message",class: "input_box_text"}
+        -#   %label{class: "input-box__image"}
+        -#     = icon('fas', 'image')
+        -#     %input{type: "file",class: "text"}
+        -# .form_form_btn_1
+        -#   %input{type:"submit",Value:"Send",class:"form_form_btn"}
+  
+        
+        
+        
+
+    
