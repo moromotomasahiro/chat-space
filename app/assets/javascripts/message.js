@@ -1,10 +1,9 @@
 $(function(){
   function buildMessage(message){
-    if ( message.image ) {
-      var img = ""
-      if (message.image) {
-        img = `<img src="${message.image.url}">`
-      }
+    var img = ""
+    if (message.image) {
+      img = `<img src="${message.image.url}">`
+    }    
       var html =
         `<div class="contents_main1"data-message-id=${message.id}>
           <div class="message__sender1">
@@ -20,7 +19,7 @@ $(function(){
           </div>
           </div>`
         return html;
-    };
+   };
   }
 
   $('#new_message').on('submit',function(e){
