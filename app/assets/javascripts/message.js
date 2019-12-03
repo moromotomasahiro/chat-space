@@ -1,9 +1,9 @@
 $(function(){
-  function buildMessage(message){
-    var img = ""
-    if (message.image) {
-      img = `<img src="${message.image.url}">`
-    }    
+  function buildHTML(message){
+      var img = ""
+      if (message.image) {
+        img = `<img src="${message.image.url}">`
+      }
       var html =
         `<div class="contents_main1"data-message-id=${message.id}>
           <div class="message__sender1">
@@ -20,7 +20,7 @@ $(function(){
           </div>`
         return html;
    };
-  }
+  
 
   $('#new_message').on('submit',function(e){
     e.preventDefault();
@@ -35,7 +35,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildMessage(data);
+      var html = buildHTML(data);
       console.log(html)
     $('.main_message').append(html)
     $('.main_message').animate({scrollTop: $('.main_message')[0].scrollHeight}); 
