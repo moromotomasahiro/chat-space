@@ -4,6 +4,7 @@ $(function(){
       if (message.image) {
         img = `<img src="${message.image.url}">`
       }
+
       var html =
         `<div class="contents_main1"data-message-id=${message.id}>
           <div class="message__sender1">
@@ -15,6 +16,7 @@ $(function(){
           <div class="message__details1">
             <p class="lower-message__content">
               ${message.content}
+              ${img}
             </p>
           </div>
           </div>`
