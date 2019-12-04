@@ -22,8 +22,6 @@ $(function(){
           </div>`
         return html;
    };
-  
-
   $('#new_message').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -57,7 +55,6 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
-    
       var insertHTML = '';
       $.each(messages, function(i, message) {
         insertHTML += buildHTML(message)
@@ -65,48 +62,8 @@ $(function(){
       $('.contents_main1').append(insertHTML);
     })
     .fail(function() {
-      console.log('error');
+      alert('error');
     });
   };
   setInterval(reloadMessages, 7000);
 });
-
-//   var reloadMessages = function() {
-//     last_message_id = $('.contents_main1:last').data("message-id")
-//     $.ajax({
-//       url: "api/messages",
-//       type: 'GET',
-//       dataType: 'json',
-//       data: {id: last_message_id}
-//     })
-//     .done(function(messages) {
-//       var insertHTML = '';
-//       $.each(messages, function(i, message) {
-//         insertHTML += buildHTML(message)
-//       });
-//       $('.messages').append(insertHTML);
-//     })
-//     .fail(function() {
-//       console.log('error');
-//     });
-//   };
-//   setInterval(reloadMessages, 7000);
-// });
-
-
-
-      
-//       console.log("aaaaa");
-//       var html = buildHTML(data);
-//     $('.main_message').append(html)
-//     $('.main_message').animate({scrollTop: $('.main_message')[0].scrollHeight}); 
-//     $('#new_message')[0].reset();
-//     $('.form__submit').prop('disabled', false);
-        
-//   })
-//     .fail(function(){
-//       alert('エラー');
-//     });
-//   }
-//   setInterval(reloadMessages, 7000);
-// });
