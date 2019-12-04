@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
       var img = ""
       if (message.image) {
-        img = `<img src="${message.image.url}">`
+        img = `<img src="${message.image}">`
       }
 
       var html =
@@ -11,7 +11,7 @@ $(function(){
             ${message.user_name}
           </div>
           <div class="message__date1">
-            ${message.data}
+            ${message.created_at}
           </div>
           <div class="message__details1">
             <p class="lower-message__content">
@@ -38,15 +38,75 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      console.log(html)
     $('.main_message').append(html)
     $('.main_message').animate({scrollTop: $('.main_message')[0].scrollHeight}); 
     $('#new_message')[0].reset();
-    $('.form__submit').prop('disabled', false);
+    $('.form_form_btn').prop('disabled', false);
   })
     .fail(function(){
       alert('エラー');
     });
-    return false;
   });
+
+  var reloadMessages = function() {
+    var last_message_id = $('.contents_main1:last').data("message-id")
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+    
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.contents_main1').append(insertHTML);
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  setInterval(reloadMessages, 7000);
 });
+
+//   var reloadMessages = function() {
+//     last_message_id = $('.contents_main1:last').data("message-id")
+//     $.ajax({
+//       url: "api/messages",
+//       type: 'GET',
+//       dataType: 'json',
+//       data: {id: last_message_id}
+//     })
+//     .done(function(messages) {
+//       var insertHTML = '';
+//       $.each(messages, function(i, message) {
+//         insertHTML += buildHTML(message)
+//       });
+//       $('.messages').append(insertHTML);
+//     })
+//     .fail(function() {
+//       console.log('error');
+//     });
+//   };
+//   setInterval(reloadMessages, 7000);
+// });
+
+
+
+      
+//       console.log("aaaaa");
+//       var html = buildHTML(data);
+//     $('.main_message').append(html)
+//     $('.main_message').animate({scrollTop: $('.main_message')[0].scrollHeight}); 
+//     $('#new_message')[0].reset();
+//     $('.form__submit').prop('disabled', false);
+        
+//   })
+//     .fail(function(){
+//       alert('エラー');
+//     });
+//   }
+//   setInterval(reloadMessages, 7000);
+// });
