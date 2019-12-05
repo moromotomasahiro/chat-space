@@ -62,7 +62,7 @@ $(function(){
       $('.contents_main1').append(insertHTML);
     })
     .fail(function() {
-      alert('error');
+      // alert('error');
     });
   };
   setInterval(reloadMessages, 7000);
