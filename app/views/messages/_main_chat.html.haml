@@ -22,7 +22,7 @@
         .form__mask
           = f.text_field :content, class: 'input_box_text', placeholder: 'type a message'
           = f.label :image, class: 'input-box__image' do
-            = icon('fas', 'image', class: 'icon')
+            = fa_icon 'image', class: 'icon'
             = f.file_field :image, class: 'text'
         = f.submit 'Send', class: 'form_form_btn'
 
