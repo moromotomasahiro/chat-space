@@ -57,13 +57,6 @@ $(function(){
     })
     .done(function(messages) {
       var insertHTML = '';
-      // messages.forEach(function (message){
-      //   insertHTML = buildHTML(message);
-      //   $('.main_messages').append(insertHTML);
-      //   $('.main_messages').animate({
-      //     scrollTop: $('.main_messagess')[0].scrollHeight
-      //   },10);
-      // })
       $.each(messages, function(i, message) {
         insertHTML += buildHTML(message)
       });
