@@ -47,6 +47,7 @@ $(function(){
   });
 
   var reloadMessages = function() {
+    if(window.location.href.match(/\/groups\/\d+\/messages/)){
     var last_message_id = $('.contents_main1:last').data("message-id")
     $.ajax({
       url: "api/messages",
@@ -56,14 +57,22 @@ $(function(){
     })
     .done(function(messages) {
       var insertHTML = '';
+      // messages.forEach(function (message){
+      //   insertHTML = buildHTML(message);
+      //   $('.main_messages').append(insertHTML);
+      //   $('.main_messages').animate({
+      //     scrollTop: $('.main_messagess')[0].scrollHeight
+      //   },10);
+      // })
       $.each(messages, function(i, message) {
         insertHTML += buildHTML(message)
       });
       $('.contents_main1').append(insertHTML);
     })
     .fail(function() {
-      // alert('error');
+      alert('自動更新に失敗しました');
     });
+  }
   };
   setInterval(reloadMessages, 7000);
 });
