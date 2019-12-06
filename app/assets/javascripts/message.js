@@ -59,8 +59,9 @@ $(function(){
       var insertHTML = '';
       $.each(messages, function(i, message) {
         insertHTML += buildHTML(message)
+        $('.main_message').animate({scrollTop: $('.main_message')[0].scrollHeight}); 
       });
-      $('.contents_main1').append(insertHTML);
+      $('.main_message').append(insertHTML);
     })
     .fail(function() {
       alert('自動更新に失敗しました');
