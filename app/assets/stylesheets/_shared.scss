@@ -16,8 +16,12 @@
 }
   .header__name{
     margin-right: 11.5rem;
-  }
 
+  
+  }
+  .name{
+    font-weight: bold;
+  }
   
   .header__lists{
     font: normal normal normal 14px/1 FontAwesome;
@@ -220,6 +224,7 @@
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .header_edit_btn a {
